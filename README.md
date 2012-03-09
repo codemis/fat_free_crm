@@ -76,7 +76,7 @@ Please run the following commands in this order:
 
 ```bash
 bundle install --without heroku   # Installs gem dependencies
-rake crm:upgrade:schema           # Updates your schema to use the new timestamped migrations
+rake ffcrm:upgrade:schema         # Updates your schema to use the new timestamped migrations
 rake db:migrate                   # Runs any new database migrations.
 ```
 
@@ -97,7 +97,7 @@ git add -f config/settings.yml
 git commit -m "Added default settings.yml"
 heroku create $app_name --stack cedar
 git push heroku master
-heroku run rake crm:setup USERNAME=admin PASSWORD=admin EMAIL=admin@example.com
+heroku run rake ffcrm:setup USERNAME=admin PASSWORD=admin EMAIL=admin@example.com
 heroku config:add HEROKU=true
 ```
 
@@ -154,14 +154,14 @@ cp config/settings.yml.example config/settings.yml
 Next, run the following rake task:
 
 ```bash
-rake crm:setup
+rake ffcrm:setup
 ```
 
 The previous command will prompt you for an admin user, password and email.
 If you want to run this task without any user input, you can set the following variables:
 
 ```bash
-rake crm:setup USERNAME=admin PASSWORD=password EMAIL=admin@example.com
+rake ffcrm:setup USERNAME=admin PASSWORD=password EMAIL=admin@example.com
 ```
 
 #### Load Demo Data (Optional)
@@ -172,7 +172,7 @@ on the fly mimic the actual use.
 **IMPORTANT**: Loading demo will delete all existing data from your database.
 
 ```bash
-rake crm:demo:load
+rake ffcrm:demo:load
 ```
 
 Among other things the demo generator creates 8 sample user records with the
@@ -184,7 +184,7 @@ The demo site at http://demo.fatfreecrm.com provides access as a sample user as 
 You can reset the database and reload demo data at any time by using:
 
 ```bash
-rake crm:demo:reload
+rake ffcrm:demo:reload
 ```
 
 #### Run the App
